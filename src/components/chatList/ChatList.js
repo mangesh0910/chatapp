@@ -89,11 +89,10 @@ export default class ChatList extends Component {
     super(props);
     this.state = {
       allChats: this.allChatUsers,
-      isOpen: false
+      
     };
   }
-  openModal = () => this.setState({ isOpen: true });
-  closeModal = () => this.setState({ isOpen: false });
+  
   render() {
     return (
       <div className="main__chatlist">
@@ -101,31 +100,14 @@ export default class ChatList extends Component {
           <i className="fa fa-plus"></i>
           <span>New conversation</span>
         </button>
-        <Modal show={this.state.isOpen} onHide={this.closeModal}>
-          <Modal.Header closeButton>
-            <Modal.Title>Modal heading</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
-          <Modal.Footer>
-            <Button variant="secondary" onClick={this.closeModal}>
-              Close
-            </Button>
-          </Modal.Footer>
-        </Modal>
+        
         <div className="chatlist__heading">
           <h2>Chats</h2>
           <button className="btn-nobg">
             <i className="fa fa-ellipsis-h"></i>
           </button>
         </div>
-        <div className="chatList__search">
-          <div className="search_wrap">
-            <input type="text" placeholder="Search Here" required />
-            <button className="search-btn">
-              <i className="fa fa-search"></i>
-            </button>
-          </div>
-        </div>
+        
         <div className="chatlist__items">
           {this.state.allChats.map((item, index) => {
             return (
