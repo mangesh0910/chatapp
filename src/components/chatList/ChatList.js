@@ -1,7 +1,7 @@
 import React, { Component } from "react";
+import AddNewUser from "../AddNewUser/AddNewUser";
 import "./chatList.css";
 import ChatListItems from "./ChatListItems";
-import { Modal,Button } from "react-bootstrap";
 
 export default class ChatList extends Component {
   allChatUsers = [
@@ -92,14 +92,21 @@ export default class ChatList extends Component {
       
     };
   }
+
+addUser=()=>{
+      console.log("button clicked")
+      this.setState([{id:12,name:'Mangesh',active:true,isOnline:true,image:"https://pbs.twimg.com/profile_images/770394499/female.png"}])
+      console.log(JSON.stringify(this.state.allChats))
+}
   
   render() {
     return (
       <div className="main__chatlist">
-        <button className="btn" onClick={this.openModal} >
-          <i className="fa fa-plus"></i>
-          <span>New conversation</span>
-        </button>
+        {/* <AddNewUser/> */}
+          <button className="btn" onClick={this.addUser} >
+                <i className="fa fa-plus"></i>
+                <span>New conversation</span>
+           </button>
         
         <div className="chatlist__heading">
           <h2>Chats</h2>
